@@ -5,9 +5,7 @@ import nltk
 from nltk.stem.porter import PorterStemmer
 import os
 
-# Set the NLTK data directory path
-nltk_data_path = '/opt/render/nltk_data'
-nltk.data.path.append(nltk_data_path)
+
 
 # Ensure the stopwords corpus is available
 from nltk.corpus import stopwords
@@ -17,10 +15,12 @@ emoticon_pattern = re.compile('(?::|;|=)(?:-)?(?:\)|\(|D|P)')
 app = Flask(__name__)
 
 # Load the sentiment analysis model and TF-IDF vectorizer
-with open('clf.pkl', 'rb') as f:
+with open(r'Sentiment_Analyisis\clf.pkl', 'rb') as f:
     clf = pickle.load(f)
-with open('tfidf.pkl', 'rb') as f:
+with open(r'Sentiment_Analyisis\tfidf.pkl', 'rb') as f:
     tfidf = pickle.load(f)
+with open(r'Sentiment_Analyisis\stopwords.pickle', 'rb') as f:
+    stop_words = pickle.load(f)
 
 def preprocessing(text):
     text = re.sub('<[^>]*>', '', text)
