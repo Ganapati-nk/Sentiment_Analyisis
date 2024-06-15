@@ -1,9 +1,6 @@
 flask
-re
 nltk
 pandas
 numpy
-TfidfVectorizer
-pickle
 scikit-learn
 gunicorn
