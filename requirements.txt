@@ -1,0 +1,9 @@
+flask
+pickle
+re
+nltk
+pandas
+numpy
+TfidfVectorizer
+pickle
+scikit-learn
