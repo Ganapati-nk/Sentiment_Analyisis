@@ -1,9 +1,9 @@
 import nltk
 import os
 
-# Specify NLTK data path (adjust this path based on your Render environment)
+# Set the NLTK data directory path
 nltk.data.path.append('/opt/render/nltk_data')
 
-# Download stopwords corpus
-nltk.download('stopwords')
+# Download necessary NLTK resources
+nltk.download('stopwords', download_dir='/opt/render/nltk_data')
 
