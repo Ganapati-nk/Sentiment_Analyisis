@@ -7,3 +7,4 @@ numpy
 TfidfVectorizer
 pickle
 scikit-learn
+gunicorn
