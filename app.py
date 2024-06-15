@@ -6,10 +6,6 @@ from nltk.stem.porter import PorterStemmer
 import os
 
 
-
-# Ensure the stopwords corpus is available
-from nltk.corpus import stopwords
-stopwords_set = set(stopwords.words('english'))
 emoticon_pattern = re.compile('(?::|;|=)(?:-)?(?:\)|\(|D|P)')
 
 app = Flask(__name__)
@@ -27,7 +23,7 @@ def preprocessing(text):
     emojis = emoticon_pattern.findall(text)
     text = re.sub('[\W+]', ' ', text.lower()) + ' '.join(emojis).replace('-', '')
     prter = PorterStemmer()
-    text = [prter.stem(word) for word in text.split() if word not in stopwords_set]
+    text = [prter.stem(word) for word in text.split() if word not in stopwords]
     return " ".join(text)
 
 @app.route('/', methods=['GET', 'POST'])
